@@ -3,6 +3,10 @@ import sys, os
 sys.path.append(os.pardir + "/deep-learning-from-scratch") # setting to import parent dir files
 from dataset.mnist import load_mnist
 
+def numerical_diff(f, x):
+    h = 1e-4 # 0.0001
+    return (f(x + h) - f(x - h)) / (2 * h)
+
 def cross_entropy_erro(y, t):
     if y.ndim == 1:
         t = t.reshape(1, t.size)
